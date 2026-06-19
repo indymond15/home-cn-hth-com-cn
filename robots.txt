@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://indymond15.github.io/home-cn-hth-com-cn/sitemap.xml
