@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>jiuyou · 站点介绍与可信说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f5f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #2e3b3a;
+            padding: 2rem 1.5rem 4rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* 主视觉卡片（hero） */
+        .hero-card {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            padding: 3.2rem 2.8rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid #eae8e1;
+            text-align: center;
+        }
+
+        .hero-card h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #2f4b4a;
+            margin-bottom: 1rem;
+        }
+
+        .hero-card h1 i {
+            font-style: normal;
+            font-weight: 300;
+            color: #6d8a83;
+        }
+
+        .hero-sub {
+            font-size: 1.1rem;
+            color: #5b6d68;
+            max-width: 600px;
+            margin: 0 auto 1.6rem;
+            border-bottom: 1px solid #edeae2;
+            padding-bottom: 1.2rem;
+        }
+
+        .hero-tagline {
+            display: inline-block;
+            background: #eef3ef;
+            padding: 0.4rem 1.6rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            color: #3f655e;
+            border: 1px solid #d9e0d6;
+            letter-spacing: 0.3px;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 1.8rem 2.2rem;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02), 0 0 0 1px #eae6de;
+            transition: box-shadow 0.2s, transform 0.15s;
+            border: 1px solid #e7e4db;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 0 0 1px #d6d2c7;
+            transform: translateY(-2px);
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #33554f;
+            margin-bottom: 1.1rem;
+            padding-bottom: 0.6rem;
+            border-bottom: 1px dashed #dde3dc;
+            letter-spacing: 0.2px;
+        }
+
+        .card p, .card ul {
+            font-size: 1rem;
+            color: #3f514d;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card li {
+            padding: 0.4rem 0 0.4rem 1.6rem;
+            position: relative;
+        }
+
+        .card li::before {
+            content: "·";
+            position: absolute;
+            left: 0.2rem;
+            color: #789b92;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .small-note {
+            font-size: 0.9rem;
+            color: #6b7f79;
+            margin-top: 1.2rem;
+            border-top: 1px solid #e8e6dd;
+            padding-top: 1rem;
+        }
+
+        /* 自然链接段落卡片 (宽卡片) */
+        .link-card {
+            background: #ffffff;
+            border-radius: 28px;
+            padding: 2.4rem 2.8rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid #e5e2d9;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.02);
+        }
+
+        .link-card p {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            line-height: 1.7;
+        }
+
+        .link-card a {
+            color: #2a6b5e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #c7d6cf;
+            transition: border-color 0.2s, color 0.2s;
+            padding: 0 1px;
+        }
+
+        .link-card a:hover {
+            color: #13473e;
+            border-bottom-color: #3f7a6b;
+        }
+
+        .link-card .muted-meta {
+            font-size: 0.95rem;
+            color: #6a7d76;
+            margin-top: 0.8rem;
+        }
+
+        /* 引用 / 提示块 */
+        .note-block {
+            background: #f0f2eb;
+            border-radius: 24px;
+            padding: 1.6rem 2rem;
+            border-left: 4px solid #7fa298;
+            margin: 1.8rem 0 0.5rem;
+            font-size: 0.95rem;
+            color: #3d5a53;
+        }
+
+        .note-block strong {
+            font-weight: 500;
+            color: #2b4d44;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 0.8rem 3rem;
+            }
+
+            .hero-card {
+                padding: 2rem 1.2rem;
+            }
+
+            .hero-card h1 {
+                font-size: 2rem;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.2rem;
+            }
+
+            .link-card {
+                padding: 1.8rem 1.4rem;
+            }
+
+            .card, .link-card {
+                border-radius: 20px;
+            }
+        }
+
+        footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #7f9089;
+            border-top: 1px solid #dfddd2;
+            padding-top: 1.8rem;
+        }
+
+        footer a {
+            color: #3f6a60;
+            text-decoration: none;
+            border-bottom: 1px solid #ced9d2;
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 主视觉 卡片 -->
+    <div class="hero-card">
+        <h1>jiuyou <i>· 静而可靠</i></h1>
+        <div class="hero-sub">一个关于数字信任与站点说明的安静角落</div>
+        <span class="hero-tagline">持续 · 透明 · 温和</span>
+    </div>
+
+    <!-- 信息卡片区域：用途 + 适合人群 -->
+    <div class="card-grid">
+        <!-- 用途卡片 -->
+        <div class="card">
+            <h2>站点用途</h2>
+            <p>提供基础的网络身份与连接说明，帮助访问者了解站点的定位、背景以及可信标识。不刻意堆砌功能，只呈现必要且真实的信息。</p>
+            <ul>
+                <li>公开站点说明与服务边界</li>
+                <li>展示技术环境与基础信任信息</li>
+                <li>作为长期维护的参考入口</li>
+            </ul>
+            <div class="small-note">一切以清晰、简洁为前提</div>
+        </div>
+
+        <!-- 适合人群卡片 -->
+        <div class="card">
+            <h2>适合人群</h2>
+            <p>如果你倾向于直接了解一个站点的基本面貌，而非被营销话术包围，这里或许能给你一份安静的参照。</p>
+            <ul>
+                <li>注重信息透明度的浏览者</li>
+                <li>希望快速定位站点性质的用户</li>
+                <li>对技术背景与站点维护风格感兴趣的朋友</li>
+            </ul>
+            <div class="small-note">不设门槛，但求坦诚</div>
+        </div>
+    </div>
+
+    <!-- 自然链接段落卡片：从可信说明的角度展开 -->
+    <div class="link-card">
+        <p>站点 <a href="https://cn-ssl-jiuyou.com">jiuyou</a> 从建立之初就希望保持一种平实、直接的对话感。无论是技术层面的基础说明，还是内容方向的隐约轮廓，都尽量做到不夸大、不模糊。如果你偶然经过，不妨把它当作一个可以安静读几行文字的节点。</p>
+        <p>这份介绍页本身也是一种尝试——用信息卡片的节奏代替传统长文，让浏览更接近翻阅卡片时的自然停顿。你可以在 <a href="https://cn-ssl-jiuyou.com">jiuyou</a> 找到更多关于站点背景与维护思路的记录，它们都延续着同样的温和语气。</p>
+        <div class="muted-meta">— 站点信息 · 持续更新 —</div>
+    </div>
+
+    <!-- 提示 / FAQ 摘要块 (融入可信说明) -->
+    <div class="note-block">
+        <strong>关于可信说明：</strong> 本页所描述的内容均基于站点实际公开信息整理，不包含任何隐藏承诺或诱导性表述。如果你对站点技术细节或运营背景有进一步疑问，<a href="https://cn-ssl-jiuyou.com" style="color:#2a6b5e;text-decoration:underline;border:none;">jiuyou</a> 的页面中通常会有更详细的脚注与参考。我们相信，信任来自持续、克制的呈现，而非喧哗。
+    </div>
+
+    <!-- 适度结尾 -->
+    <footer>
+        <span>站点 · </span><a href="https://cn-ssl-jiuyou.com">jiuyou</a><span> · 保持简单与真诚</span>
+    </footer>
+
+</div>
+</body>
+</html>
